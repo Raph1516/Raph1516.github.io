@@ -7,8 +7,9 @@ body {
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background:  #1d1430;
+    background: #1d1430;
     color: #444;
+    overflow-x: hidden;
 }
 
 body::before {
@@ -42,27 +43,13 @@ body::after {
     padding: 20px;
 }
 
-.audio-container {
-    text-align: center;
-    margin: 20px 0;
-}
-
 header {
     background: #130151;
     color: #f8f9fa;
     padding: 20px 0;
     text-align: center;
+    position: relative;
 }
-
-.logo{
-    font-size: 2rem;
-    color: #b74b4b;
-    font-weight: 900;
-    transition: 0.5s ease;
-    text-align: left;
-    transform: translateX(30px);
-    
-} 
 
 .profile-picture {
     width: 200px;
@@ -70,28 +57,26 @@ header {
     border-radius: 50%;
     border: 5px solid #fff;
     object-fit: cover;
-    
-}
-
-
-.intro {
-    font-size: 1.2em;
-    margin: 10px 0;
+    margin: 20px auto;
 }
 
 nav ul {
     list-style: none;
     padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
 nav ul li {
-    display: inline;
-    margin: 0 15px;
+    margin: 0;
 }
 
 nav a {
     color: #f8f9fa;
     text-decoration: none;
+    font-weight: bold;
     transition: color 0.3s;
 }
 
@@ -123,7 +108,17 @@ section {
 
 .project:hover {
     box-shadow: 5px 10px 15px black;
-    transform: translateY(-3px);
+    transform: translateY(-5px);
+}
+
+.project-image {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    display: block;
 }
 
 .btn {
@@ -133,31 +128,13 @@ section {
     color: white;
     text-decoration: none;
     border-radius: 5px;
+    font-weight: bold;
     transition: background 0.3s, transform 0.3s;
 }
 
 .btn:hover {
     background: #0056b3;
     transform: scale(1.05);
-}
-
-@media (max-width: 768px) {
-    nav ul li {
-        display: block;
-        margin: 10px 0;
-    }
-        
-.profile-img {
-    width: 120px;
- }
-
-.intro {
-    font-size: 1.1em;
-}
-
-.btn {
-    padding: 8px 12px;
-}
 }
 
 .icon_link a {
@@ -172,53 +149,55 @@ section {
 }
 
 .icon_link a.instagram {
-    color: #3b5998;
+    color: #bc2a8d;
 }
 
 .icon_link a.github {
-    color: #3b5998;
+    color: #333;
 }
 
 .icon_link a:hover {
     color: #ffcc00;
 }
 
-.project-image {
-    width: 50%;
-    max-width: 500px;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 15px;
-    display: block;
-}
-
 .tech-stack-list {
     list-style-type: none;
     padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
 }
 
 .tech-stack-list li {
     display: flex;
     align-items: center;
-    margin-bottom: 15px;
+    justify-content: center;
+    gap: 10px;
     padding: 10px;
     background: #f8f9fa;
     border: solid black;
-    border-radius: 32px;
-    box-shadow: 5px 10px 15px black
+    border-radius: 16px;
+    box-shadow: 5px 10px 15px black;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .tech-stack-list li:hover {
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    transform: translateY(-3px);
 }
 
 .tech-logo {
-    width: 200px;
+    width: 80px;
     height: auto;
     margin-right: 15px;
-    vertical-align: middle;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.tech-logo:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
 }
 
 footer {
@@ -226,4 +205,25 @@ footer {
     padding: 20px 0;
     background: #2978cd;
     color: #e7eaec;
+    font-size: 0.9em;
+}
+
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .profile-picture {
+        width: 120px;
+        height: 120px;
+    }
+
+    .btn {
+        padding: 8px 12px;
+    }
+
+    .intro {
+        font-size: 1.1em;
+    }
 }
